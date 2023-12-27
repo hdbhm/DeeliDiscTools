@@ -1,0 +1,140 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	
+	<FontFamily name="DeliAtonementCountFont" virtual="true">
+		<Member alphabet="roman">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="64">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="korean">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="64">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="russian">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="64">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="simplifiedchinese">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="64">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="traditionalchinese">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="64">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+	</FontFamily>
+
+	<FontFamily name="DeliAtonementCountFontSmall" virtual="true">
+		<Member alphabet="roman">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="24">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="korean">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="24">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="russian">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="24">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="simplifiedchinese">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="24">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+		<Member alphabet="traditionalchinese">
+			<Font font="Fonts\ARIALN.TTF" outline="NORMAL" justifyH="CENTER" justifyV="MIDDLE" height="24">
+				<Color r="1.0" g="1.0" b="1.0"/>
+			</Font>
+		</Member>
+	</FontFamily>
+
+
+	<Button name="DeliAtonementCount" movable="true" frameStrata="LOW" toplevel="true" parent="UIParent">
+		<Size>
+			<AbsDimension x="128" y="128" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentCount" parentKey="count" inherits="DeliAtonementCountFont">
+					<Anchors>
+						<Anchor point="CENTER" y="10"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTime" parentKey="time" inherits="DeliAtonementCountFontSmall">
+					<Anchors>
+						<Anchor point="CENTER" y="-32"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Cooldown name="$parentDurationIndicator" parentKey="durationInidcator" setAllPoints="true">
+				<SwipeTexture file="Interface\AddOns\DeliDiscTools\CooldownTexture">
+					<Color r="1" g="1" b="1" a="1" />
+				</SwipeTexture>
+			</Cooldown>
+		</Frames>
+	</Button>
+
+	<Button name="DeliDoTChecker" movable="true" frameStrata="LOW" toplevel="true" parent="UIParent">
+		<Size>
+			<AbsDimension x="64" y="64" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" y="100" />
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture parentKey="texture" file="Interface\ICONS\Ability_Mage_FireStarter" setAllPoints="true">
+				</Texture>
+			</Layer>
+		</Layers>
+	</Button>
+	
+	<Button name="DeliPowerInfusion" movable="true" frameStrata="LOW" toplevel="true" parent="UIParent">
+		<Size>
+			<AbsDimension x="64" y="64" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentTexture" parentKey="texture" file="Interface\ICONS\Spell_Holy_PowerInfusion" setAllPoints="true">
+					<Size>
+						<AbsDimension x="64" y="64" />
+					</Size>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString name="$parentTarget" parentKey="target" inherits="DeliAtonementCountFontSmall">
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentTexture" relativePoint="RIGHT" x="10"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Button>
+
+	<Script File="Libs/LibStub/LibStub.lua" />
+	<Script File="Libs/LibCustomGlow-1.0/LibCustomGlow-1.0.lua" />
+	<Script File="BinHeap.lua" />
+	<Script File="UnitFrameCache.lua" />
+	<Script File="DeliDiscTools.lua" />
+	<Script File="AtonementCount.lua" />
+	<Script File="DoTChecker.lua" />
+	<Script File="PowerInfusion.lua" />
+	<Script File="InnervateRequest.lua" />
+</Ui>

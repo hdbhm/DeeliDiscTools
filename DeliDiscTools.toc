@@ -1,0 +1,8 @@
+## Interface: 100200
+## Title: Deli Disc Tools
+## Notes: A number of useful indicators and functions for playing discipline priest in PvE.
+## SavedVariables: DeliDiscToolsSavedVariables
+## Author: Vadrak
+## Version: 1.0.0
+
+DeliDiscTools.xml
